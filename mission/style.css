@@ -73,3 +73,12 @@ p {
 ol li {
     font-size: 18px;  /* Increases the font size for list items */
 }
+
+.dark {
+    background-color: #333;
+    color: white;
+}
+
+.dark h2 {
+    color:rgb(160, 212, 237);
+}
