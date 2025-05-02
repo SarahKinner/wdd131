@@ -1,84 +1,63 @@
+/* === GENERAL STYLES === */
 body {
-    padding-top: 50px; /* adds space inside the edges of the body */
-    padding-bottom: 50px; 
-    padding-left: 450px; 
-    padding-right: 450px; 
-    margin: 15px; /* removes default browser margin */
+    margin: 15px;
+    padding: 50px 450px;
     box-sizing: border-box;
-    border: 1px solid #000;  /* Adds a 5px solid black border around the whole page */
-}
-
-h1, h2 {
-    text-align: center; 
-    margin: 0;
-}
-
-.school-name {
-    color: #0076C6;
-}
-
-h2 {
-    font-size: 15px; /* Adjust this size to your preference */
-}
-
-h1, h2 {
-    font-weight: 300; /* Lighter weight than the default */
-}
-
-h1 {
-    margin-bottom: 0px; /* Reduces the space below the heading */
-}
-
-
-h2.school-name {
-    margin-bottom: 0px; /* Reduces the space below the subheading */
-}
-
-h1 {
-    letter-spacing: 5px;  /* Larger spacing between letters for the heading */
-}
-
-h2.school-name {
-    letter-spacing: 3px;  /* Larger spacing between letters for the subheading */
-}
-
-hr {
-    margin-top: 0;  /* Reduces the space above the horizontal line */
-    margin-bottom: 50px;  /* Adds more space below the line, adjust as needed */
-}
-
-ol li {
-    margin-bottom: 25px; /* Adds space between the list items */
-}
-
-img {
-    display: block;
-    margin: 0 auto;
-}
-
-body {
+    border: 1px solid #000;
     line-height: 1.8;
 }
 
-img {
-    width: 200px; 
-    height: auto; /* Keeps the aspect raito of the image */
-    margin-top: 50px; 
+/* === TYPOGRAPHY === */
+h1, h2 {
+    text-align: center;
+    margin: 0;
+    font-weight: 300;
 }
 
-p {
-    font-size: 18px; /* Adjust this size to your preference */
+h1 {
+    margin-bottom: 0;
+    letter-spacing: 5px;
+}
+
+h2 {
+    font-size: 15px;
+}
+
+h2.school-name {
+    color: #0076C6;
+    margin-bottom: 0;
+    letter-spacing: 3px;
+}
+
+p,
+ol li {
+    font-size: 18px;
 }
 
 ol li {
-    font-size: 18px;  /* Increases the font size for list items */
+    margin-bottom: 25px;
 }
 
+/* === IMAGES === */
+img {
+    display: block;
+    width: 200px;
+    height: auto;
+    margin: 50px auto 0;
+}
+
+/* === HORIZONTAL LINE === */
+hr {
+    margin-top: 0;
+    margin-bottom: 50px;
+}
+
+/* === DARK MODE === */
 .dark {
     background-color: #333;
     color: white;
 }
 
 .dark h2 {
-    color:rgb(160, 212, 237);
+    color: rgb(160, 212, 237);
 }
