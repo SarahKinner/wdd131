@@ -82,3 +82,36 @@ nav ul {
     gap: 20px;
     justify-content: center;
 }
+
+.gallery {
+    display: grid;                  /* Enable grid layout */
+    grid-template-columns: repeat(1, 1fr);  /* 1 column for small screens */
+    gap: 50px;                       /* Space between items */
+    justify-items: center;           /* Center the items horizontally */
+    align-items: center;             /* Center the items vertically */
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+@media (min-width: 500px) and (max-width: 999px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);  /* 2 columns */
+        gap: 50px;                           /* Space between items */
+        justify-items: center;               /* Center the items horizontally */
+        align-items: center;                 /* Center the items vertically */
+    }
+}
+
+@media (min-width: 1000px) {
+    nav ul {
+      flex-direction: row;   /* Change to horizontal layout */
+      justify-content: center; /* Center the links horizontally */
+    }
+    .menu-btn {
+        display: none;  /* Hides the "Menu" text on larger screens */
+    }
+    .gallery {
+        grid-template-columns: repeat(3, 1fr);  /* 3 columns */
+        gap: 50px;              /* Space between items */
+    }
+  }
