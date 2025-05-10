@@ -91,6 +91,7 @@ nav ul {
     align-items: center;             /* Center the items vertically */
     margin: 0 auto;
     margin-bottom: 50px;
+    padding: 0 10vw;
 }
 
 @media (min-width: 500px) and (max-width: 999px) {
