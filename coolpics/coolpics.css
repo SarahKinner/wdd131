@@ -77,5 +77,8 @@ figure {
 nav ul {
     list-style-type: none; /* Removes bullets */
     padding: 0;            /* Removes default padding */
+    display: flex; 
+    flex-direction: column;
+    gap: 20px;
     justify-content: center;
 }
