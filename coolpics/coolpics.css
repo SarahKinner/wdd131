@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
+
+:root {
+    --primary-color: #52489c;
+    --secondary-color: #59c3c3;
+    --accent-color: #f45b69;
+    --text-dark: #333;
+    --text-light: #ebebeb;
+    --primary-font: Arial, Helvetica,sans-serif;
+    --secondary-font: Mooli, san-serif;
+    }
+ header {
+     text-align: center; /* Centers the text horizontally */
+     padding: 20px 0; /* Optional: Adds padding to the top and bottom for spacing */
+ }
+/* Set default font for body text */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2em;
+    margin: 0;
+    padding: 0;
+}
+a:link,
+a:visited {
+  color: white;
+}
+
+/* Apply Mooli to headers */
+h1, h2, h3 {
+    font-family: 'Mooli', sans-serif;
+}
+
+img {
+    max-width: 100%;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.menu-btn {
+    background: none;             /* Removes the background */
+    border: none;                 /* Removes the border */
+    color: inherit;               /* Inherits the color from parent */
+    font: inherit;                /* Inherits the font style */
+    cursor: pointer;             /* Makes it clickable */
+    padding: 0;                   /* Removes padding */
+    font-size: 30px;
+}
+
+main h2 {
+    text-align: center;
+  }
+  
+header {
+    background-color: var(--primary-color); /* Set header background to primary color */
+    color: var(--text-light); /* Optional: Change text color to light for contrast */
+    padding: 1em; /* Add some padding around the header content */
+}
+
+footer {
+    background-color: var(--primary-color); /* Set footer background to primary color */
+    color: var(--text-light); /* Optional: Change text color to light for contrast */
+    padding: 1em; /* Add padding to the footer */
+    text-align: center; /* Centers the footer text */
+}
+
+/* Style the images inside the gallery */
+figure {
+    display: inline-block; /* Makes figures line up horizontally */
+    margin: 10px; /* Space between each figure */
+    border: 5px solid var(white); /* Adds a border around the image */
+    padding: 5px; /* Adds space between the image and the border */
+    box-shadow: 4px 4px 10px black; /* Adds a subtle shadow to the images */
+
+}
+
+nav ul {
+    list-style-type: none; /* Removes bullets */
+    padding: 0;            /* Removes default padding */
+    display: flex;          /* Makes items go in a row */
+    gap: 20px;              /* Optional: adds space between items */
+    justify-content: center;
+}
