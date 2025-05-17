@@ -6,13 +6,18 @@
     --accent-color: #f45b69;
     --text-dark: #333;
     --text-light: #ebebeb;
-    --primary-font: Arial, Helvetica,sans-serif;
+    --primary-font: Arial, Helvetica, sans-serif;
     --secondary-font: Mooli, san-serif;
-    }
- header {
-     text-align: center; /* Centers the text horizontally */
-     padding: 20px 0; /* Optional: Adds padding to the top and bottom for spacing */
- }
+}
+
+header {
+    text-align: center; /* Centers the text horizontally */
+    padding: 20px 0; /* Optional: Adds padding to the top and bottom for spacing */
+    background-color: var(--primary-color); /* Set header background to primary color */
+    color: var(--text-light); /* Optional: Change text color to light for contrast */
+    padding: 1em; /* Add some padding around the header content */
+}
+
 /* Set default font for body text */
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -20,9 +25,10 @@ body {
     margin: 0;
     padding: 0;
 }
+
 a:link,
 a:visited {
-  color: white;
+    color: white;
 }
 
 /* Apply Mooli to headers */
@@ -42,19 +48,18 @@ img {
     border: none;                 /* Removes the border */
     color: inherit;               /* Inherits the color from parent */
     font: inherit;                /* Inherits the font style */
-    cursor: pointer;             /* Makes it clickable */
+    cursor: pointer;              /* Makes it clickable */
     padding: 0;                   /* Removes padding */
     font-size: 30px;
 }
 
+/* Hide class to show/hide elements */
+.hide {
+    display: none;
+}
+
 main h2 {
     text-align: center;
-  }
-  
-header {
-    background-color: var(--primary-color); /* Set header background to primary color */
-    color: var(--text-light); /* Optional: Change text color to light for contrast */
-    padding: 1em; /* Add some padding around the header content */
 }
 
 footer {
@@ -68,10 +73,9 @@ footer {
 figure {
     display: inline-block; /* Makes figures line up horizontally */
     margin: 10px; /* Space between each figure */
-    border: 5px solid var(white); /* Adds a border around the image */
+    border: 5px solid white; /* Adds a border around the image */
     padding: 5px; /* Adds space between the image and the border */
     box-shadow: 4px 4px 10px black; /* Adds a subtle shadow to the images */
-
 }
 
 nav ul {
@@ -94,15 +98,11 @@ nav ul {
     padding: 0 10vw;
 }
 
-.hide {
-    display: none;
-}
-
 dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.6); /* the semi-transparent black overlay */
-  }
-  
-  dialog {
+}
+
+dialog {
     position: fixed !important; /* force fixed positioning */
     top: 0 !important;
     left: 0 !important;
@@ -115,8 +115,8 @@ dialog::backdrop {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-  }
-  
+}
+
 @media (min-width: 500px) and (max-width: 999px) {
     .gallery {
         grid-template-columns: repeat(2, 1fr);  /* 2 columns */
@@ -139,6 +139,6 @@ dialog::backdrop {
         gap: 50px;              /* Space between items */
     }
     .menu {
-        display: flex !important
+        display: flex !important;
     }
-  }
+}
