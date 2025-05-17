@@ -94,6 +94,10 @@ nav ul {
     padding: 0 10vw;
 }
 
+.hide {
+    display: none;
+}
+
 @media (min-width: 500px) and (max-width: 999px) {
     .gallery {
         grid-template-columns: repeat(2, 1fr);  /* 2 columns */
@@ -114,5 +118,8 @@ nav ul {
     .gallery {
         grid-template-columns: repeat(3, 1fr);  /* 3 columns */
         gap: 50px;              /* Space between items */
+    }
+    .menu {
+        display: flex !important
     }
   }
