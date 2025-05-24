@@ -7,11 +7,15 @@ body {
   }
   
   /* Headlines font and color */
-  h1, h2, h3, h4, h5, h6 {
+  h2, h3, h4, h5, h6 {
     font-family: 'Lora', Impact, serif;
     color: #AF1B3F;
   }
   
+  h1 {
+    font-family: 'Lora', Impact, serif;
+    color: #473144;
+  }
   /* Nav links font and color */
   nav a {
     font-family: 'Lora', Impact, serif;
@@ -26,4 +30,63 @@ body {
 
   a {
     text-decoration: none;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+  }  
+
+  nav {
+    padding: 1rem;
+    border-top: 2px solid #EFC69B;
+    border-bottom: 2px solid #EFC69B;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .main-nav {
+    display: grid;
+    grid-template-columns: repeat(3, auto); /* 3 equal-width auto-sized columns */
+    justify-content: end; /* push items to the right */
+    gap: 1.5rem; /* spacing between the items */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .page-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;  /* Left (ratings), Center (main-body), Right (filters) */
+    gap: 2rem;
+    width: 100vw;          /* full viewport width */
+    height: 100vh;         /* full viewport height */
+    margin: 0;             /* no margin */
+    padding: 1rem;
+    box-sizing: border-box;
+  }  
+  
+  .article {
+    margin-bottom: 4rem; /* space between articles */
+  }
+  
+  .ratings p {
+    margin-bottom: 28rem; /* adds space after each paragraph */
+  }  
+
+  h2 {
+    font-size: 2rem; /* or any size you like */
+  }
+
+  p {
+    font-size: 1.5rem; /* or use px like 18px */
+  }   
+
+  h1 {
+    font-size: 3rem; /* or use a value like 48px */
+    text-align: center;
+  }
+
+  .main-nav{
+    font-size: 1.5rem;
   }
