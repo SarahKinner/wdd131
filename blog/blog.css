@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
+
+/* Body font and color */
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    color: #473144;
+  }
+  
+  /* Headlines font and color */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lora', Impact, serif;
+    color: #AF1B3F;
+  }
+  
+  /* Nav links font and color */
+  nav a {
+    font-family: 'Lora', Impact, serif;
+    color: #AF1B3F;
+  }
+  
+  /* 'Read More...' links font and color */
+  a[href="#"] {
+    font-family: 'Lora', Impact, serif;
+    color: #AF1B3F;
+  }
+
+  a {
+    text-decoration: none;
+  }
