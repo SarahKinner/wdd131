@@ -68,7 +68,22 @@ body {
   
   .article {
     margin-bottom: 4rem; /* space between articles */
-  }
+  } 
+
+  .article img {
+    display: block;       /* Make image a block element */
+    margin: 0 auto;       /* Automatically center it horizontally */
+    max-width: 100%;      /* Make sure it doesn't overflow */
+    height: auto;
+  } 
+
+  .ratings {
+    border-right: 2px solid #EFC69B;
+    padding-right: 1rem;
+    height: 100%; /* Make it stretch vertically */
+    align-self: stretch; /* Ensures it stretches within the grid row */
+    text-align: right;
+  }  
   
   .ratings p {
     margin-bottom: 28rem; /* adds space after each paragraph */
@@ -90,3 +105,10 @@ body {
   .main-nav{
     font-size: 1.5rem;
   }
+
+  #filters {
+    border: 2px solid #EFC69B; /* Visible left border */
+    height: 100%;
+    align-self: stretch;
+  }
+  
