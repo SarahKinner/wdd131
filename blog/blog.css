@@ -1,114 +1,176 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
 
-/* Body font and color */
-body {
-    font-family: Helvetica, Arial, sans-serif;
-    color: #473144;
-  }
-  
-  /* Headlines font and color */
-  h2, h3, h4, h5, h6 {
-    font-family: 'Lora', Impact, serif;
-    color: #AF1B3F;
-  }
-  
-  h1 {
-    font-family: 'Lora', Impact, serif;
-    color: #473144;
-  }
-  /* Nav links font and color */
-  nav a {
-    font-family: 'Lora', Impact, serif;
-    color: #AF1B3F;
-  }
-  
-  /* 'Read More...' links font and color */
-  a[href="#"] {
-    font-family: 'Lora', Impact, serif;
-    color: #AF1B3F;
-  }
+/* Reset margin and padding */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  color: #473144;
+  height: 100vh;
+}
 
-  a {
-    text-decoration: none;
-  }
+/* Headings font and colors */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lora', Impact, serif;
+  color: #AF1B3F;
+  margin-top: 0;
+}
 
-  html, body {
-    margin: 0;
-    padding: 0;
-  }  
+h1 {
+  color: #473144;
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
 
-  nav {
-    padding: 1rem;
-    border-top: 2px solid #EFC69B;
-    border-bottom: 2px solid #EFC69B;
-    border-left: none;
-    border-right: none;
-  }
-  
-  .main-nav {
-    display: grid;
-    grid-template-columns: repeat(3, auto); /* 3 equal-width auto-sized columns */
-    justify-content: end; /* push items to the right */
-    gap: 1.5rem; /* spacing between the items */
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+/* Navigation */
+nav {
+  padding: 1rem;
+  border-top: 2px solid #EFC69B;
+  border-bottom: 2px solid #EFC69B;
+  margin-bottom: 1rem;
+}
 
-  .page-container {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;  /* Left (ratings), Center (main-body), Right (filters) */
-    gap: 2rem;
-    width: 100vw;          /* full viewport width */
-    height: 100vh;         /* full viewport height */
-    margin: 0;             /* no margin */
-    padding: 1rem;
-    box-sizing: border-box;
-  }  
-  
-  .article {
-    margin-bottom: 4rem; /* space between articles */
-  } 
+.main-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding-right: 60px;
+  font-family: 'Lora', Impact, serif;
+  font-size: 1.5rem;
+}
 
-  .article img {
-    display: block;       /* Make image a block element */
-    margin: 0 auto;       /* Automatically center it horizontally */
-    max-width: 100%;      /* Make sure it doesn't overflow */
-    height: auto;
-  } 
+.main-nav a {
+  color: #AF1B3F;
+  text-decoration: none;
+}
 
-  .ratings {
-    border-right: 2px solid #EFC69B;
-    padding-right: 1rem;
-    height: 100%; /* Make it stretch vertically */
-    align-self: stretch; /* Ensures it stretches within the grid row */
-    text-align: right;
-  }  
-  
-  .ratings p {
-    margin-bottom: 28rem; /* adds space after each paragraph */
-  }  
+/* Page container with flexbox 3 columns */
+.page-container {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 20px;
+  padding: 0 20px 20px;
+  box-sizing: border-box;
+}
 
-  h2 {
-    font-size: 2rem; /* or any size you like */
-  }
+/* Left column: info */
+#left-container {
+  flex: 1;
+  border-right: 2px solid #EFC69B; /* gold border */
+  padding-right: 1rem;
+  text-align: right;
+  font-size: 1rem;
+  color: #473144;
 
-  p {
-    font-size: 1.5rem; /* or use px like 18px */
-  }   
+  height: auto;       /* grow naturally */
+  min-height: 100vh;  /* at least full viewport height */
+  box-sizing: border-box;
+  overflow: visible;  /* keep content visible */
+}
 
-  h1 {
-    font-size: 3rem; /* or use a value like 48px */
-    text-align: center;
-  }
+/* Middle column: articles */
+#article-container {
+  flex: 3;
+  padding: 0 1rem;
+  overflow: visible;
+  max-height: none;
+}
 
-  .main-nav{
-    font-size: 1.5rem;
-  }
+.article {
+  margin-bottom: 3rem;
+}
 
-  #filters {
-    border: 2px solid #EFC69B; /* Visible left border */
-    height: 100%;
-    align-self: stretch;
-  }
-  
+.article h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem; /* add space between title and image */
+}
+
+#article-container .article img {
+  display: block;
+  margin: 2rem auto; /* space above and below the image, centered */
+  max-width: 100%;
+  height: auto;
+}
+
+.article p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-top: 1rem; /* space between image and description */
+  margin-bottom: 1rem;
+}
+
+.article a {
+  font-family: 'Lora', Impact, serif;
+  color: #AF1B3F;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Right column: filters */
+#filters {
+  flex: 1;
+  border: 2px solid #EFC69B;
+  padding-left: 1rem;
+  overflow-y: auto;
+  font-size: 1rem;
+  color: #473144;
+}
+
+/* Remove default link underline */
+a {
+  text-decoration: none;
+}
+
+.desc-readmore {
+  display: flex;
+  align-items: center;
+  gap: 0.5em; /* space between description and link */
+}
+
+.desc-readmore p {
+  margin: 0; /* remove default bottom margin for better alignment */
+}
+
+.desc-readmore a {
+  white-space: nowrap; /* keep "Read More..." on one line */
+}
+
+.ratings {
+  margin-bottom: 25rem; /* big space between each article's info */
+  font-size: 1.25rem; 
+  overflow: visible; /* or just remove any overflow: auto or scroll */
+  max-height: none;  /* allow it to grow naturally */
+}
+
+.article-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.article-header h2 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.ratings {
+  font-size: 1.25rem;
+  white-space: nowrap;
+  margin: 0;
+  margin-bottom: 24.5rem;
+}
+
+#left-container .ratings:nth-of-type(2) {
+  margin-bottom: 33.5rem; /* or however much space you want */
+}
+
+h1 {
+  margin-top: 2rem;      /* space from the top of the page */
+  margin-bottom: 2rem; /* space between title and nav */
+}
