@@ -1,0 +1,301 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Grid holding the two cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+/* Shared card appearance */
+.card {
+  width: 340px;
+  height: 210px;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #8a8a8a;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+/* Labels */
+.card label {
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  display: block;
+}
+
+/* Text inputs – white boxes, dark text */
+.card input[type="text"] {
+  padding: 6px 8px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: none;
+  background-color: #ffffff;
+  color: #000000;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.card input::placeholder {
+  color: #888;
+}
+
+/* Layout for card-holder and expiration */
+.card-footer-row {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.exp {
+  flex: 0 0 50%;
+}
+
+#card-number {
+  margin-bottom: 12px;
+}
+
+/* Add some margin below card holder input */
+#card-holder {
+  margin-bottom: 12px;
+}
+
+.card-footer-row .holder {
+  flex: 0 0 60%;
+}
+
+.card-footer-row .exp {
+  flex: 0 0 40%;
+}
+
+.expiration {
+  display: flex;
+  gap: 10px;
+}
+
+.expiration input {
+  flex: 1; /* MM and YY split the remaining 50% evenly */
+}
+
+/* Top row: Total and Card Logo */
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.total {
+  font-size: 14px;
+  color: black;
+}
+
+.card-logo img {
+  height: 40px;
+}
+
+.card.back {
+  justify-content: flex-end; /* Push content to bottom */
+  align-items: flex-end;     /* Align to the right */
+  padding: 20px;
+}
+
+.cvc-field {
+  width: 25%;                /* Match size to the YY field */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;   /* Ensure label is above input */
+}
+
+.cvc-field label {
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+  color: white;
+}
+
+.cvc-field input {
+  width: 100%;
+  padding: 6px 8px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: none;
+  background-color: #ffffff;
+  color: #000;
+  box-sizing: border-box;
+}
+
+.input-group {
+  margin-top: 10px; /* moves the inputs down */
+}
+
+.card-grid {
+  position: relative;       /* position context for absolute cards */
+  width: 620px;             /* fixed width to fit both cards nicely */
+  height: 230px;            /* height to fit the cards */
+  margin: 0 auto;           /* center horizontally on page */
+}
+
+/* Front card overlaps back card */
+.card.front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;               /* on top */
+  width: 340px;
+  height: 210px;
+  background-color: #8a8a8a;
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Back card behind, shifted right and slightly down */
+.card.back {
+  position: absolute;
+  top: 20px;                /* slight vertical offset */
+  left: 300px;              /* shifted right to peek out */
+  z-index: 1;               /* behind front */
+  width: 340px;
+  height: 210px;
+  background-color: #8a8a8a;
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* aligns items to top */
+}
+
+/* The CVC input on back card: keep label above input */
+.card.back label {
+  margin-bottom: 6px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+/* CVC input size same as YY input (you already have this, just ensuring) */
+.card.back input[type="text"] {
+  width: 70px;   /* roughly same width as YY */
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: none;
+  background-color: #fff;
+  color: #000;
+  box-sizing: border-box;
+}
+
+.card.front {
+  position: relative;
+  z-index: 2;
+  /* Shift 20px left and 10px up */
+  transform: translate(193px, -20px);
+}
+
+.cvc-field {
+  margin-top: 60px; /* push label + input down */
+}
+
+.magnetic-strip {
+  position: relative;
+  left: 20px; 
+  margin-top: -5px;
+  width: calc(100% + 40px);
+  background-color: #000;
+  height: 35px;
+  width: 100%;
+  border-radius: 1px;
+  margin-bottom: 20px;
+}
+
+.card-grid {
+  position: relative;
+  width: 620px;
+  height: 230px;
+  margin: 0 auto;
+
+  /* Add this to move both cards */
+  transform: translate(-100px, 0px); /* moves right 50px and down 30px */
+}
+
+.card.front {
+  background-color: #c8c8c8; /* current gray */
+}
+
+.card.back {
+  background-color: #c8c8c8; /* current gray */
+}
+
+.card label {
+  color: black; /* example: golden yellow */
+}
+
+.submit-container {
+  margin-top: 30px;      /* space above button */
+  text-align: center;    /* center the button */
+}
+
+.submit-container button {
+  padding: 12px 30px;
+  font-size: 10px;
+  background-color: #c8c8c8; /* blue color */
+  color: black;
+  border: black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-container {
+  margin-top: 0px;    /* more space below cards */
+  text-align: left;
+  padding-left: 0px;
+}
+
+.submit-container {
+  margin-top: 300px;
+  text-align: left;
+  padding-left: 0;
+  max-width: fit-content;
+}
+
+.submit-container button {
+  padding: 10px 20px;
+  font-size: 12px;
+  background-color: #c8c8c8;
+  color: black;
+  border: 2px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0;
+  display: inline-block;
+}
+
+.submit-container button {
+  position: relative;
+  left: 455px;
+  top: -280px;
+}
