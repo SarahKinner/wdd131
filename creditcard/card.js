@@ -1,63 +1,66 @@
 function isCardNumberValid(number) {
-    // Accept only this exact card number for simplicity
+    // For this assignment, only one card number is considered valid
     return number === '1234123412341234';
   }
   
   function displayError(msg) {
-    document.querySelector('.errorMsg').textContent = msg;
+    // Show error message in the form
+    document.querySelector('.errorMsg').innerHTML = msg;
   }
   
   function submitHandler(event) {
-    event.preventDefault(); // stop form from submitting/reloading
-    
-    let errorMsg = '';
-    displayError(''); // clear previous errors
+    event.preventDefault(); // Prevent page reload
   
-    // Access the form that triggered the event via "this"
+    let errorMsg = '';
+    displayError(''); // Clear old error messages
+  
+    // 'this' refers to the form
     const cardNumber = this.cardNumber.value.trim();
     const expMonth = this.expMonth.value.trim();
-    const expYear = this.expYear.value.trim();
+    let expYear = parseInt(this.expYear.value.trim()); // changed to let
+    const monthNum = parseInt(expMonth);
   
-    // Check card number is numeric
+    // Validate card number is numeric
     if (isNaN(cardNumber)) {
-      errorMsg += 'Card number is not a valid number.\n';
+      errorMsg += 'Card number is not a valid number<br>';
     } else if (!isCardNumberValid(cardNumber)) {
-      errorMsg += 'Card number is not a valid card number.\n';
+      errorMsg += 'Card number is not a valid card number<br>';
     }
   
-    // Validate expiration date is in the future
+    // Convert short years like "25" to "2025"
+    if (expYear < 100) {
+      expYear += 2000;
+    }
+  
     const currentDate = new Date();
-    const monthNum = Number(expMonth);
-    const yearNum = Number(expYear);
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth() + 1; // JS months are 0-indexed
   
-    // Check if month and year are numbers and in valid range
+    // Validate expiration date
     if (
-      !Number.isInteger(monthNum) || monthNum < 1 || monthNum > 12 ||
-      !Number.isInteger(yearNum) || yearNum < currentDate.getFullYear()
+      isNaN(monthNum) || monthNum < 1 || monthNum > 12 ||
+      isNaN(expYear)
     ) {
-      errorMsg += 'Expiration date is invalid.\n';
-    } else {
-      // Create date object for the last day of expiration month
-      // Month in JS Date is 0-indexed, so subtract 1
-      const expiryDate = new Date(yearNum, monthNum, 0); // last day of month
-  
-      if (expiryDate < currentDate) {
-        errorMsg += 'Expiration date must be in the future.\n';
-      }
+      errorMsg += 'Expiration date is invalid<br>';
+    } else if (
+      expYear < currentYear ||
+      (expYear === currentYear && monthNum < currentMonth)
+    ) {
+      errorMsg += 'Expiration date must be in the future<br>';
     }
   
+    // If any errors, show them
     if (errorMsg !== '') {
       displayError(errorMsg);
-      return false; // stop submission
+      return false;
     }
   
-    // If no errors, submit or further process here
-    // For demo, just alert success or console.log
+    // Otherwise, it's valid
     alert('Form submitted successfully!');
     return true;
   }
   
-  // Attach the event listener when DOM is loaded
+  // Attach event listener to form when the page loads
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('#credit-card');
     if (form) {
