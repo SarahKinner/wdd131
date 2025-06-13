@@ -2,18 +2,23 @@ body {
     font-family: Palatino Linotype, sans-serif;
     background: #f0f4f8;
   }
+  
   .card {
     background: #313131;
     border-radius: 15px;
     box-shadow: 0 8px 16px rgba(0,0,0,0.9);
-    width: 400px; 
+    width: 400px;
     margin: 100px auto;
   }
-  .image{
+  
+  .image {
     width: 400px;
     height: 400px;
     border-radius: 15px 15px 0 0;
-    }
+    display: block;
+  }
+  
+  /* Reserve space and improve layout stability */
   .name {
     font-size: 1.5em;
     font-weight: bold;
@@ -22,21 +27,27 @@ body {
     padding: 15px 0 15px 35px;
     background-color: #5d747b;
   }
+  
   .stats {
     margin: 10px 15px 7px 35px;
     text-align: left;
   }
+  
   .stats p {
     margin: 5px 0;
     color: #f0f4f8;
   }
+  
   .buttons {
     text-align: center;
+    min-height: 70px; /* prevent layout shift */
   }
+  
   button {
     padding: 8px 12px;
     margin: 20px;
-    border: none;
+    height: 45px; /* fixed height to prevent shift */
+    border: 2px solid transparent; /* reserve space for hover borders */
     border-radius: 8px;
     background-color: #5d747b;
     color: white;
@@ -44,6 +55,16 @@ body {
     cursor: pointer;
     transition: background-color 0.5s ease;
   }
+  
   button:hover {
     background-color: #58605a;
   }
+  
+  /* Optional: log styling for better UI */
+  #log {
+    text-align: center;
+    color: #ccc;
+    padding: 10px;
+    font-style: italic;
+  }
+  
