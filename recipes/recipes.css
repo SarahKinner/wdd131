@@ -1,0 +1,133 @@
+/* Import Google Font (we'll override Amatic SC for accessibility) */
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap');
+
+/* Root custom properties */
+:root {
+  --primary-color: #1B98E0;
+  --secondary-color: #59c3c3;
+  --text-dark: #333;
+  --text-light: #ebebeb;
+  --primary-font: Arial, Helvetica, sans-serif;
+  --secondary-font: 'Kalam', cursive;
+}
+
+/* Global styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--primary-font);
+  color: var(--text-dark);
+  background-color: #fff;
+  line-height: 1.6;
+  padding: 1rem;
+}
+
+/* Header styles */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-title h1 {
+  font-family: var(--secondary-font);
+  font-size: 2.5rem;
+  color: var(--primary-color);
+}
+
+/* Responsive image */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Search form */
+form {
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+}
+
+form input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+
+form button {
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: 2px solid var(--primary-color);
+  border-left: none;
+  border-radius: 0 0.25rem 0.25rem 0;
+  cursor: pointer;
+}
+
+/* Recipe card */
+.recipe-card {
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  background-color: #f9f9f9;
+}
+
+.recipe-card .tags {
+  margin: 0.5rem 0;
+}
+
+.recipe-card .tag {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+}
+
+.recipe-card h2 {
+  font-size: 1.25rem;
+  color: var(--primary-color);
+  margin: 0.5rem 0;
+}
+
+.recipe-card .rating {
+  display: block;
+  margin: 0.5rem 0;
+  color: gold;
+  font-size: 1.2rem;
+}
+
+/* Hide description on mobile */
+.recipe-card p {
+  display: none;
+}
+
+/* Footer */
+footer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.6em;
+  color: var(--text-dark);
+}
+
+footer .social {
+  margin: 1rem 0;
+}
+
+footer .social a {
+  margin: 0 0.25rem;
+}
