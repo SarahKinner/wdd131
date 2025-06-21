@@ -64,11 +64,14 @@ header {
   padding: 0 1rem;
 }
 
-/* Search Form */
+/* Search Form with bottom border */
 form#searchForm {
   display: flex;
   width: 100%;
   gap: 0;
+  border-bottom: 2px solid gray;
+  padding-bottom: 0.5rem;
+  margin-bottom: -3rem; /* reduced space below form */
 }
 
 form#searchForm input {
@@ -86,8 +89,9 @@ form#searchForm input {
 form#searchForm button {
   padding: 0 1rem;
   border: 2px solid black;
-  border-left: none;
-  border-radius: 0 0.25rem 0.25rem 0;
+  border-left: 2px solid black; /* vertical separator line */
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
   background-color: transparent;
   color: black;
   font-size: 1.2rem;
@@ -103,7 +107,6 @@ form#searchForm button {
   height: 2px;
   background-color: gray;
   width: 100%;
-  flex-basis: 100%;
   margin: 0.5rem 0;
 }
 
@@ -170,7 +173,6 @@ form#searchForm button {
 /* Footer */
 footer {
   margin-top: 2rem;
-  text-align: center;
   font-size: 0.6em;
   color: var(--text-dark);
 }
@@ -208,7 +210,6 @@ footer p a {
   font-size: 0.6em;
 }
 
-
 /* Responsive for smaller screens */
 @media (max-width: 600px) {
   .recipe-card {
@@ -221,59 +222,24 @@ footer p a {
   }
 }
 
-/* Search Form with bottom line */
-form#searchForm {
-    display: flex;
-    width: 100%;
-    gap: 0;
-    border-bottom: 2px solid gray;
-    padding-bottom: 1rem;
-  }
-  
-  form#searchForm {
-    border-bottom: 2px solid gray;
-    padding-bottom: 0.5rem;
-    margin-bottom: -3rem; /* reduce space here */
-  }
-  
-
-  form#searchForm {
-    display: flex;
-    width: 100%;
-    gap: 0; /* no space between input and button */
-  }
-  
-  form#searchForm input {
-    flex: 1;
-    padding: 0.5rem 1rem;
-    border: 2px solid black;
-    border-right: none; /* remove right border to avoid double line */
-    border-radius: 0.25rem 0 0 0.25rem;
-    background-color: transparent;
-    color: black;
-    font-size: 1rem;
-    height: 40px;
-  }
-  
-  form#searchForm button {
-    padding: 0 1rem;
-    border: 2px solid black;
-    border-left: 2px solid black; /* vertical separator line */
-    border-top-left-radius: 0;   /* no rounded corner on left */
-    border-bottom-left-radius: 0;
-    border-left-color: black;     /* separator line color */
-    border-left-style: solid;
-    border-left-width: 2px;
-    background-color: transparent;
-    color: black;
-    font-size: 1.2rem;
-    cursor: pointer;
-    height: 40px;
-    display: flex;
+/* Larger screen footer layout */
+@media (min-width: 600px) {
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between; /* push items to edges */
     align-items: center;
-    justify-content: center;
+    text-align: left;
   }
-  
+
+  .footer-container .social {
+    order: 2; /* social icons on right */
+  }
+
+  .footer-container .attribution {
+    order: 1; /* attribution text on left */
+  }
+}
+
 @media (min-width: 960px) {
   body {
     padding: 2rem;
@@ -287,21 +253,3 @@ form#searchForm {
     padding: 1.5rem;
   }
 }
-
-@media (min-width: 600px) {
-    .footer-container {
-      flex-direction: row;
-      justify-content: space-between; /* push items to edges */
-      align-items: center;
-      text-align: left;
-    }
-  
-    .footer-container .social {
-      order: 2; /* ensure social icons are on the right */
-    }
-  
-    .footer-container .attribution {
-      order: 1; /* attribution text on the left */
-    }
-  }
-  
