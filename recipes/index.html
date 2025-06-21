@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RecipeBook</title>
-
   <link rel="stylesheet" href="recipes.css" />
   <script src="recipes.js" defer></script>
 
@@ -27,21 +26,15 @@
       <img src="images/recipe-book.png" alt="Recipe Book logo" />
       <h1>RecipeBook</h1>
     </div>
-
-    <!-- Shared width container for search form -->
-    <div class="content-wrapper">
-      <form id="searchForm" role="search" aria-label="Search recipes">
-        <input type="text" placeholder="Find a recipe" aria-label="Search input" />
-        <button type="submit" aria-label="Search">🔍</button>
-      </form>
-    </div>
-
-    <div class="separator-line"></div>
   </header>
 
   <main>
-    <!-- Shared width container for recipe card -->
     <div class="content-wrapper">
+      <form id="searchForm">
+        <input type="text" placeholder="Find a recipe" aria-label="Search for a recipe" />
+        <button type="submit">🔍</button>
+      </form>
+      <div class="separator-line"></div>
       <article class="recipe-card">
         <img src="images/apple-crisp.jpg" alt="Apple Crisp with vanilla ice cream" />
 
@@ -51,11 +44,13 @@
           </div>
           <h2><a href="#">Apple Crisp</a></h2>
           <span class="rating" role="img" aria-label="Rating: 4 out of 5 stars">
-            ⭐⭐⭐⭐☆
+            <span aria-hidden="true" class="icon-star">⭐</span>
+            <span aria-hidden="true" class="icon-star">⭐</span>
+            <span aria-hidden="true" class="icon-star">⭐</span>
+            <span aria-hidden="true" class="icon-star">⭐</span>
+            <span aria-hidden="true" class="icon-star-empty">☆</span>
           </span>
-          <p class="description">
-            This apple crisp recipe is a simple yet delicious fall dessert that’s great served warm with vanilla ice cream.
-          </p>
+          <p class="description">This apple crisp recipe is a simple yet delicious fall dessert that’s great served warm with vanilla ice cream.</p>
         </div>
       </article>
     </div>
@@ -65,9 +60,9 @@
     <div class="footer-container">
       <div class="social">
         <!-- Social media icons -->
-        <a href="#" aria-label="Instagram"><img src="images/instagram_icon.svg" alt="Instagram icon" /></a>
-        <a href="#" aria-label="YouTube"><img src="images/youtube_icon.svg" alt="YouTube icon" /></a>
-        <a href="#" aria-label="Pinterest"><img src="images/pinterest_icon.svg" alt="Pinterest icon" /></a>
+        <a href="#"><img src="images/instagram_icon.svg" alt="Instagram icon" /></a>
+        <a href="#"><img src="images/youtube_icon.svg" alt="YouTube icon" /></a>
+        <a href="#"><img src="images/pinterest_icon.svg" alt="Pinterest icon" /></a>
       </div>
   
       <div class="attribution">
