@@ -1,7 +1,7 @@
 /* Import Amatic SC font for headings */
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
 
-/* Custom properties */
+/* Custom Properties */
 :root {
   --primary-color: #1B98E0;
   --secondary-color: #59c3c3;
@@ -53,30 +53,21 @@ header {
   color: black;
 }
 
-/* Separator line */
-.separator-line {
-  height: 2px;
-  background-color: gray;
-  width: 100vw;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-/* Flex container for search + recipe */
+/* Content Wrapper */
 .content-wrapper {
   display: flex;
-  gap: 2rem;
-  width: 100%;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 90vw;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
-  align-items: flex-start;
-  flex-wrap: wrap; /* wraps on smaller screens */
 }
 
-/* Search form */
+/* Search Form */
 form#searchForm {
-  flex: 1 1 40%;
   display: flex;
+  width: 100%;
   gap: 0;
 }
 
@@ -90,7 +81,6 @@ form#searchForm input {
   color: black;
   font-size: 1rem;
   height: 40px;
-  margin: 0;
 }
 
 form#searchForm button {
@@ -103,22 +93,30 @@ form#searchForm button {
   font-size: 1.2rem;
   cursor: pointer;
   height: 40px;
-  margin: 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* Recipe card */
+/* Separator Line */
+.separator-line {
+  height: 2px;
+  background-color: gray;
+  width: 100%;
+  flex-basis: 100%;
+  margin: 0.5rem 0;
+}
+
+/* Recipe Card */
 .recipe-card {
-  flex: 1 1 60%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
   border: 2px solid black;
   border-radius: 0.5rem;
   padding: 1rem;
   background-color: #f9f9f9;
-  display: flex;
-  gap: 1.5rem;
-  align-items: flex-start;
   box-sizing: border-box;
 }
 
@@ -210,17 +208,9 @@ footer p a {
   font-size: 0.6em;
 }
 
-/* Responsive Layout */
+
+/* Responsive for smaller screens */
 @media (max-width: 600px) {
-  .content-wrapper {
-    flex-direction: column;
-  }
-
-  form#searchForm,
-  .recipe-card {
-    flex: 1 1 100%;
-  }
-
   .recipe-card {
     flex-direction: column;
   }
@@ -246,8 +236,19 @@ footer p a {
 }
 
 @media (min-width: 600px) {
-    .content-wrapper {
-      width: 90vw;           /* take up 90% of the viewport width */
-      max-width: 90vw;
+    .footer-container {
+      flex-direction: row;
+      justify-content: space-between; /* push items to edges */
+      align-items: center;
+      text-align: left;
+    }
+  
+    .footer-container .social {
+      order: 2; /* ensure social icons are on the right */
+    }
+  
+    .footer-container .attribution {
+      order: 1; /* attribution text on the left */
     }
   }
+  
