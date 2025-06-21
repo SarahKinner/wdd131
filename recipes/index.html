@@ -4,8 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RecipeBook</title>
-  <link rel="stylesheet" href="recipes.css" />
-  <script src="recipes.js" defer></script>
+
+  <!-- Preload and load main CSS -->
+  <link rel="preload" href="recipes.css" as="style" />
+  <link rel="stylesheet" href="recipes.css" media="all" />
+
+  <!-- Load Google Font (same font, just moved to HTML for performance) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:title" content="RecipeBook - Delicious Recipes to Try" />
@@ -19,11 +26,14 @@
   <meta name="twitter:title" content="RecipeBook - Delicious Recipes to Try" />
   <meta name="twitter:description" content="Explore a variety of easy and delicious recipes with RecipeBook. Find your next favorite meal or dessert!" />
   <meta name="twitter:image" content="https://yourdomain.com/images/apple-crisp.jpg" />
+
+  <!-- JavaScript (deferred for performance) -->
+  <script src="recipes.js" defer></script>
 </head>
 <body>
   <header>
     <div class="logo-title">
-      <img src="images/recipe-book.png" alt="Recipe Book logo" />
+      <img src="images/recipe-book.png" alt="Recipe Book logo" width="100" height="100" />
       <h1>RecipeBook</h1>
     </div>
   </header>
@@ -34,9 +44,11 @@
         <input type="text" placeholder="Find a recipe" aria-label="Search for a recipe" />
         <button type="submit">🔍</button>
       </form>
+
       <div class="separator-line"></div>
+
       <article class="recipe-card">
-        <img src="images/apple-crisp.jpg" alt="Apple Crisp with vanilla ice cream" />
+        <img src="images/apple-crisp.jpg" alt="Apple Crisp with vanilla ice cream" width="300" height="200" />
 
         <div class="recipe-details">
           <div class="tags">
@@ -61,10 +73,9 @@
   <footer>
     <div class="footer-container">
       <div class="social">
-        <!-- Social media icons -->
-        <a href="#"><img src="images/instagram_icon.svg" alt="Instagram icon" /></a>
-        <a href="#"><img src="images/youtube_icon.svg" alt="YouTube icon" /></a>
-        <a href="#"><img src="images/pinterest_icon.svg" alt="Pinterest icon" /></a>
+        <a href="#"><img src="images/instagram_icon.svg" alt="Instagram icon" width="50" height="50" /></a>
+        <a href="#"><img src="images/youtube_icon.svg" alt="YouTube icon" width="50" height="50" /></a>
+        <a href="#"><img src="images/pinterest_icon.svg" alt="Pinterest icon" width="50" height="50" /></a>
       </div>
 
       <div class="attribution">
