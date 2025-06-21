@@ -5,11 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RecipeBook</title>
 
-  <!-- Preload and load main CSS -->
+  <!-- Preload styles -->
   <link rel="preload" href="recipes.css" as="style" />
-  <link rel="stylesheet" href="recipes.css" media="all" />
+  <link rel="stylesheet" href="recipes.css" />
 
-  <!-- Load Google Font (same font, just moved to HTML for performance) -->
+  <!-- Preload hero image to improve LCP -->
+  <link rel="preload" as="image" href="images/apple-crisp.jpg" />
+
+  <!-- Font (kept as-is) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" />
