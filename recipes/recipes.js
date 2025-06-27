@@ -278,4 +278,118 @@ const recipes = [
 		recipeYield: '12 servings',
 		rating: 4
 	}
-]
+];
+
+function random(num) {
+	return Math.floor(Math.random() * num);
+  }
+  
+  function getRandomListEntry(list) {
+	const listLength = list.length;
+	const randomNum = random(listLength);
+	return list[randomNum];
+  }
+  
+  // === Render Functions ===
+  
+  function renderTags(tags) {
+	if (!tags || tags.length === 0) return '';
+	return `
+	  <div class="tags">
+		${tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}
+	  </div>
+	`;
+  }
+  
+  function renderRating(rating) {
+	const fullStars = Math.floor(rating);
+	const emptyStars = 5 - fullStars;
+	return `
+	  <span class="rating" role="img" aria-label="Rating: ${rating} out of 5 stars">
+		${'⭐'.repeat(fullStars)}${'☆'.repeat(emptyStars)}
+	  </span>
+	`;
+  }
+  
+  function renderRecipeCard(recipe) {
+	const container = document.querySelector('.content-wrapper');
+  
+	// Remove any existing recipe cards
+	const existingCard = container.querySelector('.recipe-card');
+	if (existingCard) {
+	  existingCard.remove();
+	}
+  
+	const card = document.createElement('article');
+	card.classList.add('recipe-card');
+  
+	card.innerHTML = `
+	  <img src="${recipe.image}" alt="${recipe.name}" width="300" height="200" />
+	  <div class="recipe-details">
+		${renderTags(recipe.tags)}
+		<h2><a href="#">${recipe.name}</a></h2>
+		${renderRating(recipe.rating)}
+		<p class="description">${recipe.description}</p>
+	  </div>
+	`;
+  
+	container.appendChild(card);
+  }
+  
+  // === Init Function ===
+  
+  function init() {
+	const randomRecipe = getRandomListEntry(recipes);
+	renderRecipeCard(randomRecipe);
+  }
+  
+  // Run when the page loads
+  window.addEventListener('DOMContentLoaded', init);
+
+  function tagsTemplate(tags) {
+	// transform each tag string into an <li> element, then join them all
+	const html = tags.map(tag => `<li>${tag}</li>`).join('');
+	return `<ul class="recipe__tags">${html}</ul>`;
+  }
+  
+  function ratingTemplate(rating) {
+	let html = `<span
+	  class="rating"
+	  role="img"
+	  aria-label="Rating: ${rating} out of 5 stars"
+	>`;
+	
+	for (let i = 1; i <= 5; i++) {
+	  if (i <= Math.floor(rating)) {
+		html += `<span aria-hidden="true" class="icon-star">⭐</span>`;
+	  } else {
+		html += `<span aria-hidden="true" class="icon-star-empty">☆</span>`;
+	  }
+	}
+  
+	html += `</span>`;
+	return html;
+  }
+  
+  function recipeTemplate(recipe) {
+	return `
+	  <figure class="recipe">
+		<img src="${recipe.image}" alt="image of ${recipe.name}" />
+		<figcaption>
+		  ${tagsTemplate(recipe.tags)}
+		  <h2><a href="#">${recipe.name}</a></h2>
+		  <p class="recipe__ratings">
+			${ratingTemplate(recipe.rating)}
+		  </p>
+		  <p class="recipe__description">
+			${recipe.description}
+		  </p>
+		</figcaption>
+	  </figure>
+	`;
+  }
+  
+  // Test it
+  const recipe = getRandomListEntry(recipes);
+  console.log(recipeTemplate(recipe));
+  
