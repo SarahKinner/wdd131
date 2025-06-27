@@ -280,116 +280,98 @@ const recipes = [
 	}
 ];
 
-function random(num) {
-	return Math.floor(Math.random() * num);
+// Template to generate tags HTML
+function tagsTemplate(tags) {
+	return tags.map(tag => `<span class="tag">${tag}</span>`).join('');
   }
   
-  function getRandomListEntry(list) {
-	const listLength = list.length;
-	const randomNum = random(listLength);
-	return list[randomNum];
-  }
-  
-  // === Render Functions ===
-  
-  function renderTags(tags) {
-	if (!tags || tags.length === 0) return '';
-	return `
-	  <div class="tags">
-		${tags.map(tag => `<span class="tag">${tag}</span>`).join(' ')}
-	  </div>
-	`;
-  }
-  
-  function renderRating(rating) {
-	const fullStars = Math.floor(rating);
-	const emptyStars = 5 - fullStars;
-	return `
-	  <span class="rating" role="img" aria-label="Rating: ${rating} out of 5 stars">
-		${'⭐'.repeat(fullStars)}${'☆'.repeat(emptyStars)}
-	  </span>
-	`;
-  }
-  
-  function renderRecipeCard(recipe) {
-	const container = document.querySelector('.content-wrapper');
-  
-	// Remove any existing recipe cards
-	const existingCard = container.querySelector('.recipe-card');
-	if (existingCard) {
-	  existingCard.remove();
-	}
-  
-	const card = document.createElement('article');
-	card.classList.add('recipe-card');
-  
-	card.innerHTML = `
-	  <img src="${recipe.image}" alt="${recipe.name}" width="300" height="200" />
-	  <div class="recipe-details">
-		${renderTags(recipe.tags)}
-		<h2><a href="#">${recipe.name}</a></h2>
-		${renderRating(recipe.rating)}
-		<p class="description">${recipe.description}</p>
-	  </div>
-	`;
-  
-	container.appendChild(card);
-  }
-  
-  // === Init Function ===
-  
-  function init() {
-	const randomRecipe = getRandomListEntry(recipes);
-	renderRecipeCard(randomRecipe);
-  }
-  
-  // Run when the page loads
-  window.addEventListener('DOMContentLoaded', init);
-
-  function tagsTemplate(tags) {
-	// transform each tag string into an <li> element, then join them all
-	const html = tags.map(tag => `<li>${tag}</li>`).join('');
-	return `<ul class="recipe__tags">${html}</ul>`;
-  }
-  
+  // Template to generate rating stars HTML
   function ratingTemplate(rating) {
-	let html = `<span
-	  class="rating"
-	  role="img"
-	  aria-label="Rating: ${rating} out of 5 stars"
-	>`;
-	
+	let html = `<span class="rating" role="img" aria-label="Rating: ${rating} out of 5 stars">`;
 	for (let i = 1; i <= 5; i++) {
-	  if (i <= Math.floor(rating)) {
+	  if (i <= rating) {
 		html += `<span aria-hidden="true" class="icon-star">⭐</span>`;
 	  } else {
 		html += `<span aria-hidden="true" class="icon-star-empty">☆</span>`;
 	  }
 	}
-  
 	html += `</span>`;
 	return html;
   }
   
+  // Template to generate the full recipe HTML
   function recipeTemplate(recipe) {
 	return `
-	  <figure class="recipe">
-		<img src="${recipe.image}" alt="image of ${recipe.name}" />
-		<figcaption>
-		  ${tagsTemplate(recipe.tags)}
+	  <article class="recipe-card">
+		<img src="${recipe.image}" alt="${recipe.alt}" width="300" height="200" />
+		<div class="recipe-details">
+		  <div class="tags">
+			${tagsTemplate(recipe.tags)}
+		  </div>
 		  <h2><a href="#">${recipe.name}</a></h2>
-		  <p class="recipe__ratings">
-			${ratingTemplate(recipe.rating)}
-		  </p>
-		  <p class="recipe__description">
-			${recipe.description}
-		  </p>
-		</figcaption>
-	  </figure>
+		  ${ratingTemplate(recipe.rating)}
+		  <p class="description">${recipe.description}</p>
+		</div>
+	  </article>
 	`;
   }
   
-  // Test it
-  const recipe = getRandomListEntry(recipes);
-  console.log(recipeTemplate(recipe));
+  // Render a list of recipes into #recipes-container
+  function renderRecipes(recipeList) {
+	const container = document.getElementById("recipes-container");
+	const html = recipeList.map(recipe => recipeTemplate(recipe)).join('');
+	container.innerHTML = html;
+  }
   
+  // Utility function to pick a random recipe
+  function getRandomListEntry(list) {
+	const index = Math.floor(Math.random() * list.length);
+	return list[index];
+  }
+  
+  // Filter recipes by query string
+  function filterRecipes(query) {
+	const filtered = recipes.filter(recipe => {
+	  const lowerQuery = query.toLowerCase();
+	  return (
+		recipe.name.toLowerCase().includes(lowerQuery) ||
+		recipe.description.toLowerCase().includes(lowerQuery) ||
+		recipe.tags.find(tag => tag.toLowerCase().includes(lowerQuery))
+		// Add other fields if you have them, e.g. ingredients
+	  );
+	});
+  
+	// Sort alphabetically by name
+	filtered.sort((a, b) => a.name.localeCompare(b.name));
+	return filtered;
+  }
+  
+  // Search form submit handler
+  function searchHandler(event) {
+	event.preventDefault();
+	const input = document.querySelector("#searchForm input");
+	const query = input.value.trim().toLowerCase();
+  
+	if (query === "") {
+	  // If search is empty, show a random recipe again or all recipes if you prefer
+	  const randomRecipe = getRandomListEntry(recipes);
+	  renderRecipes([randomRecipe]);
+	} else {
+	  const filteredRecipes = filterRecipes(query);
+	  renderRecipes(filteredRecipes);
+	}
+  }
+  
+  // Initialization function to setup event listeners and initial rendering
+  function init() {
+	// Render one random recipe at start
+	const randomRecipe = getRandomListEntry(recipes);
+	renderRecipes([randomRecipe]);
+  
+	// Attach event listener for search form
+	const form = document.getElementById("searchForm");
+	form.addEventListener("submit", searchHandler);
+  }
+  
+  // Start the app
+  init();
