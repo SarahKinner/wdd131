@@ -189,3 +189,8 @@ header h1 {
 #search-bar {
   margin-top: 2rem; /* adds space above the search bar, pushing it down */
 }
+
+
+hr {
+  width: 90%;         /* Adjust the length of the line (60% of container width) */
+}
