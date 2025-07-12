@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         name: "SS Creator",
         image: "images/SwapSwapCreator.png",
         link: "character6.html",
-        tags: ["Humanoind", "SwapSwap AU"]
+        tags: ["Humanoid", "SwapSwap AU"]
       },
       {
         name: "Ruby",
@@ -46,17 +46,22 @@ document.addEventListener("DOMContentLoaded", () => {
         name: "The Creator",
         image: "images/AnthroCreator.png",
         link: "character8.html",
-        tags: ["Anthro", "Anthro AU", "Avator"]
+        tags: ["Anthro", "Anthro AU", "Avatar"]
       },
       {
         name: "Matt Green",
         image: "images/Matt.png",
         link: "character9.html",
         tags: ["Human", "Real World"]
-      },
+      }
     ];
   
     const grid = document.getElementById("character-grid");
+    const searchInput = document.getElementById("searchInput");
+    const searchButton = document.getElementById("searchButton");
+    const sortSelect = document.getElementById("sort");
+  
+    let currentQuery = ""; // track current search term
   
     function createCharacterProfile(char) {
       const profile = document.createElement("div");
@@ -89,9 +94,55 @@ document.addEventListener("DOMContentLoaded", () => {
       return profile;
     }
   
-    characters.forEach(char => {
-      const profileElement = createCharacterProfile(char);
-      grid.appendChild(profileElement);
+    function renderCharacters(characterList) {
+      grid.innerHTML = "";
+      characterList.forEach(char => {
+        const profileElement = createCharacterProfile(char);
+        grid.appendChild(profileElement);
+      });
+    }
+  
+    function filterAndSortCharacters() {
+      let filtered = characters.filter(char => {
+        const nameMatch = char.name.toLowerCase().includes(currentQuery);
+        const tagMatch = char.tags.some(tag =>
+          tag.toLowerCase().includes(currentQuery)
+        );
+        return nameMatch || tagMatch;
+      });
+  
+      const sortValue = sortSelect.value;
+  
+      if (sortValue === "az") {
+        filtered.sort((a, b) => a.name.localeCompare(b.name));
+      } else if (sortValue === "za") {
+        filtered.sort((a, b) => b.name.localeCompare(a.name));
+      } else if (sortValue === "newest") {
+        filtered = filtered.slice().reverse(); // simulate "newest first"
+      }
+      // "oldest" is default order
+  
+      renderCharacters(filtered);
+    }
+  
+    function handleSearch() {
+      currentQuery = searchInput.value.trim().toLowerCase();
+      filterAndSortCharacters();
+    }
+  
+    // Initial render
+    renderCharacters(characters);
+  
+    // Search events
+    searchButton.addEventListener("click", handleSearch);
+    searchInput.addEventListener("keydown", e => {
+      if (e.key === "Enter") {
+        handleSearch();
+      }
     });
+  
+    // Sort event
+    sortSelect.addEventListener("change", filterAndSortCharacters);
   });
+  
   
