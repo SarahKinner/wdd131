@@ -1,0 +1,160 @@
+/* --- Base Styling --- */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fafafa;
+  color: #333;
+}
+
+/* --- Header --- */
+header {
+  padding: 1rem 2rem;
+  color: #333;
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  align-items: center;    /* center horizontally */
+  gap: 0.5rem;            /* space between title and search bar */
+  background: transparent; /* no background */
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* --- Search Bar --- */
+#search-bar {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 400px;
+  justify-content: center;
+}
+
+#search-bar input[type="text"] {
+  flex-grow: 1;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+}
+
+#search-bar button {
+  padding: 0.5rem 1rem;
+  background-color: #93a8ac;
+  border: none;
+  border-radius: 6px;
+  color: #b20d30;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#search-bar button:hover {
+  background-color: #b20d30;
+  color: black;
+}
+
+/* --- Sort Section --- */
+#sort-section {
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;  /* Center horizontally */
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
+  background-color: transparent; /* Remove background */
+}
+
+#sort-section label {
+  font-weight: 600;
+}
+
+#sort {
+  padding: 0.4rem 0.8rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  cursor: pointer;
+}
+
+/* --- Character Grid Layout --- */
+#character-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 2rem;
+  text-align: center;
+  justify-items: center; /* center items inside grid cells */
+}
+
+/* --- Character Profile --- */
+.character-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  border: 3px solid #0a6004;  /* Visible green border */
+  padding: 1rem;
+  background-color: white;
+  width: 250px;               /* Fixed width for consistency */
+  box-sizing: border-box;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* --- Character Image --- */
+.character-image {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border: 3px solid black;
+  border-radius: 10px;
+  display: block;
+  object-fit: contain;
+}
+
+/* --- Character Name Button --- */
+.character-name-button {
+  width: 80%;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  background-color: #93a8ac;
+  color: #b20d30;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.character-name-button:hover {
+  background-color: #b20d30;
+  color: black;
+}
+
+/* --- Tags Container --- */
+.character-tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* --- Individual Tag --- */
+.tag {
+  background-color: #eee;
+  color: #555;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  user-select: none;
+  white-space: nowrap;
+}
