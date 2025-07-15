@@ -3,55 +3,55 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         name: "HS Sam",
         image: "images/AnthroHSSAM.png",
-        link: "character-page.html",
+        link: "character-hs-sam-page.html",
         tags: ["Anthro", "HS AU"]
       },
       {
         name: "Sam",
         image: "images/AnthroSam.png",
-        link: "character2.html",
+        link: "character-anthro-sam.html",
         tags: ["Anthro", "Anthro AU"]
       },
       {
         name: "Tom",
         image: "images/AnthroTom.png",
-        link: "character3.html",
+        link: "character-anthro-tom.html",
         tags: ["Anthro", "Anthro AU"]
       },
       {
         name: "Sona",
         image: "images/Sona.png",
-        link: "character4.html",
+        link: "character-sona.html",
         tags: ["Anthro", "Sona"]
       },
       {
         name: "Pibling Sam",
         image: "images/PiblingSam.png",
-        link: "character5.html",
+        link: "character-pibling-sam.html",
         tags: ["Human", "Ghost", "SwapSwap AU"]
       },
       {
         name: "SS Creator",
         image: "images/SwapSwapCreator.png",
-        link: "character6.html",
+        link: "character-swapswap-creator.html",
         tags: ["Humanoid", "SwapSwap AU"]
       },
       {
         name: "Ruby",
         image: "images/Ruby.png",
-        link: "character7.html",
+        link: "character-ruby.html",
         tags: ["Human", "Real World"]
       },
       {
         name: "The Creator",
         image: "images/AnthroCreator.png",
-        link: "character8.html",
+        link: "character-anthro-creator.html",
         tags: ["Anthro", "Anthro AU", "Avatar"]
       },
       {
         name: "Matt Green",
         image: "images/Matt.png",
-        link: "character9.html",
+        link: "character-matt-green.html",
         tags: ["Human", "Real World"]
       }
     ];
